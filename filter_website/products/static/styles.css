@@ -1,0 +1,465 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #54d3ef;
+    padding: 10px 0;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and navigation */
+}
+
+.logo {
+    display: flex; /* Align items horizontally */
+    align-items: center; 
+}
+
+.logo img {
+    width: 80px; /* Adjust the size of the logo image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Reduce margin */
+    border-radius: 9px; /* Adds space between the logo and the text */
+}
+
+.logo h1 {
+    font-size: 2rem; /* Adjusted font size for a more compact look */
+    color: white; /* Text color contrasting with the background */
+    background: linear-gradient(135deg, #ff7e5f, #feb47b, #084ee7); /* Gradient with multiple colors */
+    padding: 5px 20px; /* Reduced padding around the text */
+    border-radius: 15px; /* Smooth rounded corners */
+    text-transform: uppercase; /* Make text all uppercase for boldness */
+    letter-spacing: 1px; /* Reduced letter spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+    background-clip: text; /* Clip gradient to text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Make text color transparent for gradient */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Reduced gap between items */
+    flex-wrap: wrap; /* Allow items to wrap */
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links li a {
+    padding: 8px 15px; /* Reduced padding */
+    border: 3px solid #47042b;
+    border-radius: 25px; /* Full rounded border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    transition: all 0.3s ease;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.4rem; /* Adjusted font size */
+}
+
+.nav-links li a:hover {
+    border-color: #f0a500; /* Change border color on hover */
+    background-color: #f0a500; /* Change background on hover */
+    color: white; /* Text color change */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+.search-bar {
+    text-align: right;
+    margin-left: auto; /* Align search bar to the right */
+    margin-right: 15px; /* Add some spacing */
+}
+
+.search-bar input[type="text"] {
+    padding: 8px 10px; /* Reduced padding */
+    font-size: 1rem; /* Keep font size */
+    border-radius: 8px;
+    border: 2px solid #002D62;
+    outline: none;
+}
+
+/* Adjust hover or focus states */
+.search-bar input[type="text"]:focus {
+    border-color: #f0a500;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack items vertically */
+        gap: 10px; /* Adjust spacing */
+        align-items: center; /* Center items */
+    }
+
+    .nav-links li a {
+        font-size: 1.2rem; /* Adjust font size for smaller screens */
+        padding: 5px 15px; /* Adjust padding */
+    }
+
+    .search-bar {
+        margin-left: 0; /* Remove margin for search bar */
+        margin-top: 10px; /* Add spacing above search bar */
+        width: 100%; /* Full width */
+        text-align: center; /* Center align search bar */
+    }
+
+    .search-bar input[type="text"] {
+        width: 80%; /* Width of the search bar */
+    }
+}
+
+
+.dadimg {
+    display: flex; /* Use flexbox to arrange items in a row */
+    justify-content: center; /* Center the images horizontally */
+    gap: 20px; /* Optional: adds space between the images */
+}
+
+.dadimg img {
+    width: 300px; /* Set the width for images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 9px;
+}
+
+.hero {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0a0202;
+    text-align: center;
+}
+.hero-content{
+    font-size: 30px;
+}
+.shopbtn a{
+    text-decoration: none;
+}
+.shopbtn  {
+    display: inline-block;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32); /* Green gradient */
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px; /* Rounded corners */
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+    transition: all 0.3s ease; /* Smooth transition for hover */
+}
+
+.shopbtn:hover {
+    background: linear-gradient(135deg, #66BB6A, #388E3C); /* Change gradient on hover */
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px); /* Lift the button on hover */
+}
+
+.about-us {
+    padding: 50px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.services, .products, .contact {
+    padding: 50px;
+}
+
+.service-cards, .product-gallery {
+    display: flex;
+    justify-content: space-around;
+}
+/*/* Products Section */
+.products {
+    padding: 50px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.products h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+/* Updated product-gallery to use grid */
+.product-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items in the first row */
+    gap: 30px; /* Space between items */
+}
+
+/* Styles for each product card */
+.product-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+    .product-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 items in a row for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-gallery {
+        grid-template-columns: repeat(1, 1fr); /* 1 item in a row for small screens */
+    }
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product-card h3 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.product-card p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+
+.buy-now {
+    padding: 10px 20px;
+    background-color: #002D62;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-now:hover {
+    background-color: #f0a500;
+}
+.shop-now-index a {
+    padding: 10px 20px;
+    background-color: #519ef5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.shop-now-index a:hover {
+    background-color: #0e5a68;
+    text-decoration: none;
+}
+.services {
+    padding: 50px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.services-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.service-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.service-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.service-card h3 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.service-card p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* About Us Section */
+.about {
+    
+    text-align: center;
+    background-color: #fff;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.about h3 {
+    font-size: 1.8rem;
+    margin-top: 40px;
+}
+
+
+/* Contact Section */
+.contact {
+    padding: 50px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.contact-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #002D62;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #f0a500;
+}
+.banner {
+    position: relative;
+    overflow: hidden; /* Hide overflow to prevent images from showing outside the container */
+    height: 700px; /* Set height for the banner */
+}
+
+.slider {
+    display: flex; /* Use flexbox to arrange slides in a row */
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+    width: 300%; /* Width is 100% per slide multiplied by number of slides */
+}
+
+.slide {
+    width: 100%; /* Each slide takes full width of the slider */
+    height: 100%; /* Full height of the banner */
+}
+
+.slide {
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth opacity transition */
+}
+
+.slide.active {
+    opacity: 1; /* Only active slide is visible */
+}
+.product-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.zoom-image {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    height: 500px;
+}
+
+.product-img:hover .zoom-image {
+    transform: scale(1.5); /* Zooms in on hover */
+}
+
+
+.search-bar {
+    margin-bottom: 20px; /* Space between search bar and social media icons */
+}
+
+.social-media {
+    list-style: none;
+    display: flex;
+    flex-direction: row; /* Arrange icons in a column */
+    margin-left: 39%;
+    gap: 35px; /* Space between icons */
+    margin-top: 10px; /* Add margin to the top */
+}
+
+.social-media a {
+    color: rgb(225, 240, 125); /* Change color to match your theme */
+    font-size: 45px; /* Size of the icons (increased size) */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.social-media a:hover {
+    color: #4feeee; /* Change color on hover */
+}
+
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}

@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Filter Business</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar"></nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>🔍</button>
+            </div>
+        
+            <div class="logo">
+                <img src="{% static 'images/logoo.png' %}" alt="Business Logo">
+                <h1>Sigdel Biosand Filter</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'products' %}">Products</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            
+            
+        </nav>
+    </header>
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Our Services</h2>
+        <h3>Sigdel Biosand Filter <br>
+            9858034311 <br>
+            Feel free to contact us.
+        </h3>
+        <div class="services-gallery">
+            <!-- Service 3 -->
+            <div class="service-card">
+                <img src="{% static 'images/filterwholesale1.jpg' %}" alt="Service 3">
+                <h3>Offers</h3>
+                <p>For them who collect order more than 10 pieces, we provide them 1 filter free of cost for their efforts.</p>
+            </div>
+            <!-- Service 1 -->
+            <div class="service-card">
+                <img src="{% static 'images/delivery.jpg' %}" alt="Service 1">
+                <h3>Home Delivery</h3>
+                <p>We are located at Gulariya-4, Bardiya. We provide the home delivery services in mainly western area of Nepal
+                    (Bardiya,Banke,Kailali,Dang). If your orders are more than 5 pieces, then we are ready to deliver all over the Nepal.
+                </p>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card">
+                <img src="{% static 'images/maintAINENCE.jpeg' %}" alt="Service 2">
+                <h3>Maintenance</h3>
+                <p>Regular maintenance services are provided to ensure your filter system runs smoothly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Water Filter Business. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'script2.js' %}"></script>
+</body>
+</html>

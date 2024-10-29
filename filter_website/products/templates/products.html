@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Filter Business</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar"></nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>🔍</button>
+            </div>
+        
+            <div class="logo">
+                <img src="{% static 'images/logoo.png' %}" alt="Business Logo">
+                <h1>Sigdel Biosand Filter</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'products' %}">Products</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            
+            
+        </nav>
+    </header>
+    
+    <!-- Products Section -->
+    <section class="products">
+        <h2>Our Products</h2>
+        <div class="product-gallery">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="{% static 'images/unpainted.jpg' %}" alt="Water Filter 1" class="zoom-image">
+                </div>
+                <h3>Water Filter Model 1</h3>
+                <p>Price: Rs 2500</p>
+                <p>It is a single piece without any interior and exterior finishing done in the filter useful for other filter industries.</p>
+                <label for="quantity1">Quantity:</label>
+                <input type="number" id="quantity1" value="1" min="1" onchange="calculatePrice(1, 2500)">
+                <p>Total Price: Rs <span id="total-price1">2500</span></p>
+                <p id="error1" style="color:red;"></p>
+                <button class="buy-now" onclick="redirectTocustomerinfo(1)">Place Order</button>
+                
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="{% static 'images/singlefilter1.jpg' %}" alt="Water Filter 2" class="zoom-image">  
+                </div>
+                <h3>Water Filter Model 2</h3>
+                <p>Price: Rs 4500</p>
+                <p>It is simple and most sold piece with all the internal supplements and painted with sky blue color outside it's sides.</p>
+                <label for="quantity2">Quantity:</label>
+                <input type="number" id="quantity2" value="1" min="1" onchange="calculatePrice(2, 4500)">
+                <p>Total Price: Rs <span id="total-price2">4500</span></p>
+                <p id="error2" style="color:red;"></p>
+                <button class="buy-now" onclick="redirectTocustomerinfo(2)">Place Order</button>
+                
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="{% static 'images/tilefilter1.jpg' %}" alt="Water Filter 3" class="zoom-image">
+                </div>
+                <h3>Water Filter Model 3</h3>
+                <p>Price: Rs 7000</p>
+                <p>It has white marbles surrounding outside its sides which make it cool, shiny, and stronger.</p>
+                <label for="quantity3">Quantity:</label>
+                <input type="number" id="quantity3" value="1" min="1" onchange="calculatePrice(3, 7000)">
+                <p>Total Price: Rs <span id="total-price3">7000</span></p>
+                <p id="error3" style="color:red;"></p>
+                <button class="buy-now" onclick="redirectTocustomerinfo(3)">Place Order</button>
+                
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="{% static 'images/tilefilter2.jpg' %}" alt="Water Filter 4"  class="zoom-image">                    
+                </div>
+                <h3>Water Filter Model 4</h3>
+                <p>Price: Rs 7000</p>
+                <p>It has black and red marbles surrounding outside it's sides which make it cool and shining and little stronger.</p>
+                <label for="quantity4">Quantity:</label>
+                <input type="number" id="quantity4" value="1" min="1" onchange="calculatePrice(4, 7000)">
+                <p>Total Price: Rs <span id="total-price4">7000</span></p>
+                <p id="error4" style="color:red;"></p>
+                <button class="buy-now" onclick="redirectTocustomerinfo(4)">Place Order</button>
+                
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="{% static 'images/filterwholesale2.jpg' %}" alt="Water Filter 5"  class="zoom-image">
+                </div>
+                <h3>Wholesale without Finishing</h3>
+                <p>Price: Rs 2000/piece</p>
+                <p>In wholesale, you are supposed to order more than 5 filters.</p>
+                
+                <!-- Input field for quantity -->
+                Quantity: <input type="number" id="quantity5" min="5" value="5" onchange="calculatePrice(5, 2000, true)">
+                
+                <!-- Total Price Display -->
+                <p>Total Price: Rs <span id="total-price5">10000</span></p>
+            
+                <!-- Error message -->
+                <p style="color:red;" id="error5"></p>
+            
+                <button class="buy-now" onclick="redirectTocustomerinfo(5)">Place Order</button>
+                
+            </div>
+            
+            <!-- Product 6 - Wholesale with Final Setup -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="{% static 'images/filter1.jpg' %}" alt="Water Filter 6" class="zoom-image">                   
+                </div>
+                <h3>Wholesale with Final Setup</h3>
+                <p>Price: Rs 3500/piece</p>
+                <p>In wholesale, you are supposed to order more than 5 filters.</p>
+                
+                <!-- Input field for quantity -->
+                Quantity: <input type="number" id="quantity6" min="5" value="5" onchange="calculatePrice(6, 3500, true)">
+                
+                <!-- Total Price Display -->
+                <p>Total Price: Rs <span id="total-price6">17500</span></p>
+            
+                <!-- Error message -->
+                <p style="color:red;" id="error6"></p>
+            
+                <button class="buy-now" onclick="redirectTocustomerinfo(6)">Place Order</button>
+                
+            </div>
+            <!-- Add more product cards as needed -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Water Filter Business. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'script2.js' %}">
+</script>
+</body>
+</html>

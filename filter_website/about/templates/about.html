@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Filter Business</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar"></nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>🔍</button>
+            </div>
+        
+            <div class="logo">
+                <img src="{% static 'images/logoo.png' %}" alt="Business Logo">
+                <h1>Sigdel Biosand Filter</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'products' %}">Products</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            
+            
+        </nav>
+    </header>
+
+    <!-- About Us Section -->
+    <ul class="social-media">
+        <li><a href="https://www.facebook.com/profile.php?id=61550796322547" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://www.youtube.com/yourprofile" target="_blank"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://wa.me/9848013618" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+    </ul>
+    <section class="about">
+        <h2>About Our Business</h2>
+        <p>
+            Established by [Hari Prasad Sigdel], our water filter business has been providing high-quality water filtration solutions since 6 years.
+            With 6 years of experience, we have built a reputation for reliable products and excellent customer service. We are located in Gulariya-4, Bardiya. 
+            We facilitate the services of home delivery all over the Nepal.
+        </p>
+
+        <h3>About [Mr. Hari Prasad Sigdel]</h3>
+        <p>
+            [Hari Prasad Sigdel] has been passionate about water purification and ensuring clean drinking water for families and businesses. With his deep knowledge and experience in water filtration technologies, he has grown the business into a trusted name in the industry.
+        </p>
+    </section>
+    <section id="about" class="about-us">
+        <p>We are the distributor of Biosand Filters all over the Nepal with genuine quality and best price.</p>
+        <div class="dadimg">
+        <img src="{% static 'images/dad.jpg' %}" alt="Founder Photo"width="300" height="400">
+        <img src="{% static 'images/me.jpg' %}" alt="Founder Photo"width="300" height="400">
+        
+        </div>
+
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Sigdel Biosand Filter And Concrete Factory. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'script2.js' %}"></script>
+</body>
+</html>

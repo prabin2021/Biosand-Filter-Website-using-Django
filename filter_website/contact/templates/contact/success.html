@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <style>
+         .done-button {
+            text-decoration: none; /* Remove underline */
+        }
+        body {
+
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50; /* Green color */
+        }
+        p {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        .logo {
+            width: 150px; /* Adjust the size as needed */
+            margin-bottom: 20px;
+        }
+        .done-button {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .done-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        .details {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <img src="{% static 'images/logoo.png' %}" alt="Sigdel Biosand Filter Logo" class="logo">
+    <h1>Thank you for contacting us!</h1>
+    <p><strong>Your message has been sent successfully.</strong></p>
+    
+    <div class="details">
+        <p>Sigdel Biosand Filter</p>
+        <p>9858034311</p>
+        <p>Gulariya-4,Bardiya</p>
+        <p>Your trusted partner for clean water solutions.</p>
+    </div>
+    
+    <a class="done-button" href="{% url 'index' %}">Done</a>
+</body>
+</html>

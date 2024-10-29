@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Filter Business</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar"></nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>🔍</button>
+            </div>
+        
+            <div class="logo">
+                <img src="{% static 'images/logoo.png' %}" alt="Business Logo">
+                <h1>Sigdel Biosand Filter</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'products' %}">Products</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            
+            
+        </nav>
+    </header>
+    <section class="banner">
+        <div class="slider">
+            <img src="{% static 'images/filter1.jpg' %}" alt="Banner Image 1" class="slide active">
+            <img src="{% static 'images/filter4.jpg' %}" alt="Banner Image 2" class="slide">
+            <img src="{% static 'images/filter3.jpg' %}" alt="Banner Image 3" class="slide">
+        </div>
+    </section>
+    <!-- Banner Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>We Guarentee Pure Water for a Healthier Life</h2>
+            <p>Explore our wide range of water filters that guarantee safe drinking water.</p>
+            <div class="shopbtn">
+                <a href="{% url 'products' %}">SHOP NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-us">
+        <h2>About Us</h2>
+        <p>Founded by [Hari Prasad Sigdel], our mission is to provide top-quality water filtration products and services to ensure clean and safe water for every household.</p>
+        <div class="dadimg">
+        <img src="{% static 'images/dad.jpg' %}" alt="Founder Photo"width="300" height="400">
+        <img src="{% static 'images/me.jpg' %}" alt="Founder Photo"width="300" height="400">
+        
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <h3>Water Filter Installation</h3>
+                <p>We offer expert installation of water filters for homes and businesses.</p>
+            </div>
+            <div class="service-card">
+                <h3>Delivery all over the Nepal</h3>
+                <p>We offer quick and reliable delivery all over the Nepal.</p>
+            </div>
+            <div class="service-card">
+                <h3>Filter Maintenance</h3>
+                <p>Keep your water filters in top condition with our maintenance services.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="products" class="products">
+        <h2>Our Products</h2>
+        <div class="product-gallery">
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="{% static 'images/unpainted.jpg' %}" alt="Water Filter 1" class="zoom-image">
+                </div>
+                <h3>Water Filter Model 1</h3>
+                <p>Rs 2500</p>
+                <div class="shop-now-index"><a href="{% url 'products' %}">Place Order</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="{% static 'images/singlefilter1.jpg' %}" alt="Water Filter 2" class="zoom-image">  
+                </div>
+                <h3>Water Filter Model 2</h3>
+                <p>Rs 4500</p>
+                <div class="shop-now-index"><a href="{% url 'products' %}">Place Order</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="{% static 'images/tilefilter1.jpg' %}" alt="Water Filter 3" class="zoom-image">
+                </div>
+                <h3>Water Filter Model 3</h3>
+                <p>Rs 6000</p>
+                <div class="shop-now-index"><a href="{% url 'products' %}">Place Order</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials -->
+    <section class="testimonials">
+        <h2>Customer Reviews</h2>
+        <div class="testimonial">
+            <p>"Great service and quick delivery!" - Kabir Adhikari</p>
+            <p>"Thanks! It works well." - Maya Thapa</p>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <form class="contact-form" method="POST" action="{% url 'contact' %}">
+        <h2>Let's be in touch. <br></h2>
+        {% csrf_token %}
+        
+        {% if form.errors %}
+            <div class="error-messages">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p style="color: red;">{{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Sigdel Biosand Filter And Concrete Factory. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'script2.js' %}"></script>
+  
+    
+</body>
+</html>

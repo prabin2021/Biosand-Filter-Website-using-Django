@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Filter Business</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar"></nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>🔍</button>
+            </div>
+        
+            <div class="logo">
+                <img src="{% static 'images/logoo.png' %}" alt="Business Logo">
+                <h1>Sigdel Biosand Filter</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'products' %}">Products</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            
+            
+        </nav>
+    </header>
+    <style>
+        /* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with higher opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #a9e719;
+    margin: 15% auto; /* Centered and pushed down */
+    padding: 30px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    width: 40%; /* Set a specific width */
+    animation: slideIn 0.5s ease; /* Add slide-in animation */
+}
+
+/* Modal Title */
+.modal-content h2 {
+    margin: 0;
+    padding-bottom: 20px; /* Space below the title */
+    text-align: center; /* Center align title */
+    color: #333; /* Darker color for the title */
+}
+.modal-content h1 {
+    margin: 0;
+    padding-bottom: 20px; /* Space below the title */
+    text-align: center; /* Center align title */
+    color: #333; /* Darker color for the title */
+}
+
+/* Close Button */
+.close-btn {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+    color: #080606; /* Gray color for the close button */
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+.close-btn:hover {
+    color: #e43710; /* Darker on hover */
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px; /* Space above the form */
+}
+
+/* Input Fields */
+label {
+    margin-bottom: 5px; /* Space below labels */
+    font-weight: bold; /* Bold labels */
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+    padding: 10px; /* Padding inside input fields */
+    margin-bottom: 20px; /* Space below each input */
+    border: 2px solid #1c0404; /* Light gray border */
+    border-radius: 9px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    transition: border-color 0.3s; /* Transition for border color */
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus {
+    border-color: #c9f34e; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Submit Button */
+button {
+    padding: 10px;
+    background-color: #72f658; /* Bootstrap primary color */
+    color: white; /* Text color */
+    border: 1px solid black; /* No border */
+    border-radius: 11px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Transition for background color */
+}
+
+button:hover {
+    background-color: #8fd9f9; /* Darker shade on hover */
+}
+
+</style>
+
+<div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h1>Sigdel Biosand Filter💧</h1>
+        <h2>Order Details</h2>
+        <div id="orderSummary" style="display: none;">
+            <p><strong>Product Number: </strong><span id="summaryProductNumber"></span></p>
+            <p><strong>Quantity: </strong><span id="summaryQuantity"></span></p>
+            <p><strong>Total Price: Rs </strong><span id="summaryTotalPrice"></span></p>
+            <p><strong>Name:</strong> <span id="summaryName"></span></p>
+            <p><strong>Address:</strong> <span id="summaryAddress"></span></p>
+            <p><strong>Contact Number:</strong> <span id="summaryContact"></span></p>
+            <p><strong>Email:</strong> <span id="summaryEmail"></span></p>
+            <p> <center>Thank you for your order. We will call you.</center></p>
+        </div>
+        <form id="orderForm" method="POST" action="{% url 'customerinfo' %}">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" required><br>
+            
+            <label for="address">Address:</label>
+            <input type="text" id="address" required><br>
+            
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" required><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" required><br>
+            
+            <button type="button" onclick="submitOrder()">Submit Order</button>
+        </form>
+    </div>
+</div>
+<script src="{% static 'script2.js' %}"></script>
+<script>
+
+        // Function to get query parameters from the URL
+        function getQueryParams() {
+            var params = {};
+            var queryString = window.location.search.substring(1);
+            var pairs = queryString.split("&");
+            for (var i = 0; i < pairs.length; i++) {
+                var pair = pairs[i].split("=");
+                params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+            }
+            return params;
+        }
+
+        // Display the parameters in the corresponding fields
+        window.onload = function() {
+        var params = getQueryParams();
+        document.getElementById('summaryProductNumber').innerText = params.productNumber; // Set product number
+        document.getElementById('summaryQuantity').innerText = params.quantity; // Set quantity
+        document.getElementById('summaryTotalPrice').innerText = params.totalPrice; // Set total price
+        document.getElementById('summaryName').innerText = params.name || ''; // Set name if available
+        document.getElementById('summaryAddress').innerText = params.address || ''; // Set address if available
+        document.getElementById('summaryContact').innerText = params.contact || ''; // Set contact if available
+        document.getElementById('summaryEmail').innerText = params.email || ''; // Set email if available
+    };
+
+</script>
+
+    
+</body>
+</html>
